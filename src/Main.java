@@ -1,75 +1,58 @@
-import java.io.*;
 import java.util.Scanner;
-import java.util.NoSuchElementException;
+
 class Main {
     public static void main(String[] args) {
         System.out.println("Hello and Welcome to Java Calculator");
-        while(true){
-            System.out.println(" Insert x ,/ ,- or + ");
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("Insert x, /, -, or +");
+            String a = sc.nextLine();
             try {
-                Scanner sc = new Scanner(System.in);
-                String a = sc.nextLine();
                 if (a.equals("x")) {
-                    System.out.println(" First number to multiply ");
-                    Scanner sa = new Scanner(System.in);
+                    System.out.println("First number to multiply:");
                     String b = sc.nextLine();
-                    System.out.println(" Second number to multiply ");
-                    Scanner sn = new Scanner(System.in);
+                    System.out.println("Second number to multiply:");
                     String c = sc.nextLine();
                     int d = Integer.parseInt(c);
                     int e = Integer.parseInt(b);
                     System.out.println(d * e);
-                }
-
-                else if (a.equals("/")) {
-                    System.out.println(" First number to divide ");
-                    Scanner se = new Scanner(System.in);
-                    String f = se.nextLine();
-                    System.out.println(" Second number to divide ");
-                    Scanner sr = new Scanner(System.in);
-                    String g = sr.nextLine();
+                } else if (a.equals("/")) {
+                    System.out.println("First number to divide:");
+                    String f = sc.nextLine();
+                    System.out.println("Second number to divide:");
+                    String g = sc.nextLine();
                     int h = Integer.parseInt(f);
                     int i = Integer.parseInt(g);
                     System.out.println(h / i);
-                }
-                if (a.equals("-")) {
-                    System.out.println(" First number to subtract ");
-                    Scanner as = new Scanner(System.in);
-                    String j = as.nextLine();
-                    System.out.println(" Second number to subtract ");
-                    Scanner ac = new Scanner(System.in);
-                    String k = ac.nextLine();
+                } else if (a.equals("-")) {
+                    System.out.println("First number to subtract:");
+                    String j = sc.nextLine();
+                    System.out.println("Second number to subtract:");
+                    String k = sc.nextLine();
                     int l = Integer.parseInt(j);
                     int m = Integer.parseInt(k);
                     System.out.println(l - m);
-                }
-                if (a.equals("+")) {
-                    System.out.println(" First number to add ");
-                    Scanner aa = new Scanner(System.in);
-                    String n = aa.nextLine();
-                    System.out.println(" Second number to add ");
-                    Scanner scanner1 = new Scanner(System.in);
-                    String o = scanner1.nextLine();
-                    scanner1.close();
+                } else if (a.equals("+")) {
+                    System.out.println("First number to add:");
+                    String n = sc.nextLine();
+                    System.out.println("Second number to add:");
+                    String o = sc.nextLine();
                     int p = Integer.parseInt(o);
                     int q = Integer.parseInt(n);
                     int r = q + p;
                     System.out.println(r);
+                } else {
+                    System.out.println("Invalid input");
                 }
-            } catch (Exception e) {
-                System.out.println("Incorrect Input, please put valid integers");
+            } catch (NumberFormatException e) {
+                System.out.println("Incorrect input, please enter valid integers");
             }
-            System.out.println(" Type exit to leave or press 1 to keep going ");
-            Scanner scanner2 = new Scanner(System.in);
-            String z = scanner2.nextLine();
-
+            System.out.println("Type 'exit' to leave or press any key to continue");
+            String z = sc.nextLine();
             if (z.equalsIgnoreCase("exit")) {
                 break;
             }
-
         }
-
-
+        sc.close();
     }
-
 }
